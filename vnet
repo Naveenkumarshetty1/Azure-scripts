@@ -39,10 +39,11 @@ mv /var/www/html/index.html /var/www/html/videos/index.html
 
 vnet creation
 =================================================
-az network vnet create   --resource-group Naveen   --name vm2204LTS-vnet   --address-prefix 10.0.0.0/16   --location "Central India"
 
-az network vnet subnet create   --resource-group Naveen   --vnet-name vm2204LTS-vnet   --name backend-pools-subnet   --address-prefix 10.0.1.0/24
+az network vnet create   --resource-group Naveenkumar   --name G-vnet   --address-prefix 10.0.0.0/16   --location "Canada  Central"
 
-az network vnet subnet create   --resource-group Naveen   --vnet-name vm2204LTS-vnet   --name appgw-subnet   --address-prefix 10.0.2.0/24
+az network vnet subnet create   --resource-group Naveenkumar   --vnet-name G-vnet   --name G-subnet-1   --address-prefix 10.0.1.0/24
 
-az vm create  --resource-group Naveen --name vm1 --vnet-name vm2204LTS-vnet --subnet backend-pools-subnet --image Ubuntu2204 --location "Central India" --admin-username sandeep --admin-password Login@1314 --size Standard_B1ms
+az network vnet subnet create   --resource-group Naveenkumar   --vnet-name G-vnet   --name G-subnet-2   --address-prefix 10.0.2.0/24
+
+az vm create  --resource-group Naveenkumar --name G-vm1 --vnet-name G-vnet --subnet G-subnet-1 --image Ubuntu2204 --location "Canada Central" --admin-username nvn --admin-password Nvn@9154092428--size Standard_B1ms
